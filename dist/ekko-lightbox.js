@@ -34,6 +34,16 @@ var Lightbox = (function ($) {
 			fail: 'Failed to load image:',
 			type: 'Could not detect remote target type. Force the type using data-type'
 		},
+        modalClass: '',
+        modalDialogClass: '',
+        modalContentClass: '',
+        modalHeaderClass: '',
+        modalTitleClass: '',
+        modalBodyClass: '',
+        modalFooterClass: '',
+        modalTitleTag: 'h4',
+        closeButtonClass: '',
+        closeButtonContent: '<span aria-hidden="true">&times;</span>',
 		doc: document, // if in an iframe can specify top.document
 		onShow: function onShow() {},
 		onShown: function onShown() {},
@@ -96,14 +106,19 @@ var Lightbox = (function ($) {
 
 			this._isBootstrap3 = $.fn.modal.Constructor.VERSION[0] == 3;
 
-			var h4 = '<h4 class="modal-title">' + (this._config.title || "&nbsp;") + '</h4>';
-			var btn = '<button type="button" class="close" data-dismiss="modal" aria-label="' + this._config.strings.close + '"><span aria-hidden="true">&times;</span></button>';
+			var h4 = '<'+ this._config.modalTitleTag + ' class="modal-title' + (this._config.modalTitleClass ? ' ' + this._config.modalTitleClass : '') + '">' + (this._config.title || "&nbsp;") + '</'+ this._config.modalTitleTag + '>';
+            
+			var btn = '<button type="button" class="close' + (this._config.closeButtonClass ? ' ' + this._config.closeButtonClass : '') + '" data-dismiss="modal" aria-label="' + this._config.strings.close + '">' + this._config.closeButtonContent + '</button>';
 
-			var header = '<div class="modal-header' + (this._config.title || this._config.alwaysShowClose ? '' : ' hide') + '">' + (this._isBootstrap3 ? btn + h4 : h4 + btn) + '</div>';
-			var footer = '<div class="modal-footer' + (this._config.footer ? '' : ' hide') + '">' + (this._config.footer || "&nbsp;") + '</div>';
-			var body = '<div class="modal-body"><div class="ekko-lightbox-container"><div class="ekko-lightbox-item fade in show"></div><div class="ekko-lightbox-item fade"></div></div></div>';
-			var dialog = '<div class="modal-dialog" role="document"><div class="modal-content">' + header + body + footer + '</div></div>';
-			$(this._config.doc.body).append('<div id="' + this._modalId + '" class="ekko-lightbox modal fade" tabindex="-1" tabindex="-1" role="dialog" aria-hidden="true">' + dialog + '</div>');
+			var header = '<div class="modal-header' + (this._config.modalHeaderClass ? ' ' + this._config.modalHeaderClass : '') + (this._config.title || this._config.alwaysShowClose ? '' : ' hide') + '">' + (this._isBootstrap3 ? btn + h4 : h4 + btn) + '</div>';
+            
+			var footer = '<div class="modal-footer' + (this._config.modalFooterClass ? ' ' + this._config.modalFooterClass : '') + (this._config.footer ? '' : ' hide') + '">' + (this._config.footer || "&nbsp;") + '</div>';
+            
+			var body = '<div class="modal-body' + (this._config.modalBodyClass ? ' ' + this._config.modalBodyClass : '') + '"><div class="ekko-lightbox-container"><div class="ekko-lightbox-item fade in show">' + this._config.loadingMessage + '</div><div class="ekko-lightbox-item fade"></div></div></div>';
+            
+			var dialog = '<div class="modal-dialog' + (this._config.modalDialogClass ? ' ' + this._config.modalDialogClass : '') + '" role="document"><div class="modal-content' + (this._config.modalContentClass ? ' ' + this._config.modalContentClass : '') + '">' + header + body + footer + '</div></div>';
+            
+			$(this._config.doc.body).append('<div id="' + this._modalId + '" class="ekko-lightbox modal fade' + (this._config.modalClass ? ' ' + this._config.modalClass : '') + '" tabindex="-1" tabindex="-1" role="dialog" aria-hidden="true">' + dialog + '</div>');
 
 			this._$modal = $('#' + this._modalId, this._config.doc);
 			this._$modalDialog = this._$modal.find('.modal-dialog').first();

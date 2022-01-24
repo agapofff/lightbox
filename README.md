@@ -21,29 +21,37 @@ New config params for advanced configuration of displaying modal.
 
 Defaults:
 ```
-    modalClass: '',
-    modalDialogClass: '',
-    modalContentClass: '',
-    modalHeaderClass: '',
-    modalTitleClass: '',
-    modalBodyClass: '',
-    modalFooterClass: '',
-    modalTitleTag: 'h4',
-    closeButtonClass: '',
-    closeButtonContent: '<span aria-hidden="true">&times;</span>',
+modalClass: '',
+modalDialogClass: '',
+modalContentClass: '',
+modalHeaderClass: '',
+modalTitleClass: '',
+modalBodyClass: '',
+modalFooterClass: '',
+modalTitleTag: 'h4',
+closeButtonClass: '',
+closeButtonContent: '<span aria-hidden="true">&times;</span>',
 ```
 
-All params are available to be used as data-attributes
+All params are available to be used as data-attributes.
+
 Example:
 ```
-    data-modal-class="modal-class" 
-    data-modal-dialog-class="modal-dialog-class" 
-    data-modal-content-class="modal-content-class" 
-    data-modal-header-class="modal-header-class" 
-    data-modal-title-tag="span" 
-    data-modal-title-class="modal-title-class" 
-    data-close-button-class="close-button-class" 
-    data-close-button-content="X" 
-    data-modal-body-class="modal-body-class" 
-    data-modal-footer-class="modal-footer-class" 
+data-modal-class="modal-class" 
+data-modal-dialog-class="modal-dialog-class" 
+data-modal-content-class="modal-content-class" 
+data-modal-header-class="modal-header-class" 
+data-modal-title-tag="span" 
+data-modal-title-class="modal-title-class" 
+data-close-button-class="close-button-class" 
+data-close-button-content="X" 
+data-modal-body-class="modal-body-class" 
+data-modal-footer-class="modal-footer-class" 
+```
+
+Loader has been changed to Bootstrap 4 spinner.
+```
+<div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
 ```

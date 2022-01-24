@@ -26,7 +26,7 @@ var Lightbox = (function ($) {
 		wrapping: true, //if true, gallery loops infinitely
 		type: null, //force the lightbox into image / youtube mode. if null, or not image|youtube|vimeo; detect it
 		alwaysShowClose: false, //always show the close button, even if there is no title
-		loadingMessage: '<div class="ekko-lightbox-loader"><div><div></div><div></div></div></div>', // http://tobiasahlin.com/spinkit/
+		loadingMessage: '<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>',
 		leftArrow: '<span>&#10094;</span>',
 		rightArrow: '<span>&#10095;</span>',
 		strings: {
@@ -114,7 +114,7 @@ var Lightbox = (function ($) {
             
 			var footer = '<div class="modal-footer' + (this._config.modalFooterClass ? ' ' + this._config.modalFooterClass : '') + (this._config.footer ? '' : ' hide') + '">' + (this._config.footer || "&nbsp;") + '</div>';
             
-			var body = '<div class="modal-body' + (this._config.modalBodyClass ? ' ' + this._config.modalBodyClass : '') + '"><div class="ekko-lightbox-container"><div class="ekko-lightbox-item fade in show">' + this._config.loadingMessage + '</div><div class="ekko-lightbox-item fade"></div></div></div>';
+			var body = '<div class="modal-body' + (this._config.modalBodyClass ? ' ' + this._config.modalBodyClass : '') + '"><div class="ekko-lightbox-container"><div class="ekko-lightbox-item fade in show"></div><div class="ekko-lightbox-item fade"></div></div></div>';
             
 			var dialog = '<div class="modal-dialog' + (this._config.modalDialogClass ? ' ' + this._config.modalDialogClass : '') + '" role="document"><div class="modal-content' + (this._config.modalContentClass ? ' ' + this._config.modalContentClass : '') + '">' + header + body + footer + '</div></div>';
             

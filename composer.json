@@ -1,0 +1,28 @@
+{
+    "name": "agapofff/lightbox",
+    "description": "A lightbox gallery plugin for Bootstrap",
+    "keywords": [
+        "bootstrap", 
+        "lightbox", 
+        "gallery",
+        "jquery",
+        "modal", 
+        "agapofff"
+    ],
+    "homepage": "https://github.com/agapofff/lightbox",
+    "type": "library",
+    "license": "Apache-2.0",
+    "support": {
+        "source": "https://github.com/agapofff/lightbox"
+    },
+    "authors": [
+        {
+            "name": "ashleydw",
+            "email": "hello@ashleyd.ws"
+        },
+        {
+            "name": "Dmitriy Agapofff",
+            "email": "agapofff@gmail.com"
+        }
+    ],
+}
